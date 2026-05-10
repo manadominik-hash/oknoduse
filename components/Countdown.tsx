@@ -6,7 +6,7 @@ import { timeLeft } from "@/lib/format";
 function Box({ v, l }: { v: number; l: string }) {
   return (
     <div className="flex flex-col items-center">
-      <span className="grid min-w-[2.6rem] place-items-center rounded-lg bg-ink/70 px-2 py-1.5 font-display text-lg font-semibold tabular-nums ring-1 ring-white/10">
+      <span className="grid min-w-[2.6rem] place-items-center rounded-lg bg-line/60 px-2 py-1.5 font-display text-lg font-semibold tabular-nums ring-1 ring-line/80">
         {String(v).padStart(2, "0")}
       </span>
       <span className="mt-1 text-[10px] uppercase tracking-widest text-mute">{l}</span>
@@ -29,7 +29,7 @@ export function Countdown({ to, compact = false }: { to: string; compact?: boole
     return (
       <span
         className={`inline-flex items-center gap-1 rounded-full px-2.5 py-1 text-xs font-bold tabular-nums ${
-          urgent ? "animate-pulse-glow bg-coral/20 text-coral ring-1 ring-coral/50" : "bg-grape/15 text-[#cdbcff] ring-1 ring-grape/40"
+          urgent ? "animate-pulse-glow bg-coral/20 text-coral ring-1 ring-coral/50" : "bg-grape/12 text-grape ring-1 ring-grape/35"
         }`}
       >
         ⏳ {t.d > 0 ? `${t.d}d ` : ""}

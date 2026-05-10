@@ -55,7 +55,7 @@ export function PointsPill() {
         <span className="tabular-nums">{hydrated ? num(shown) : "—"}</span>
       </span>
       {state.spins > 0 && (
-        <span className="ml-0.5 flex items-center gap-1 rounded-full bg-grape/25 px-1.5 py-0.5 text-[11px] text-[#cdbcff] ring-1 ring-grape/40">
+        <span className="ml-0.5 flex items-center gap-1 rounded-full bg-grape/25 px-1.5 py-0.5 text-[11px] text-grape ring-1 ring-grape/40">
           🎡 {state.spins}
         </span>
       )}

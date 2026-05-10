@@ -9,7 +9,7 @@ const POOL = [
   { name: 'Mini riso print „Mesto v noci" (A6)', icon: "🌃" },
   { name: "Set 3 art-pohľadníc z aktuálnych dropov", icon: "✉️" },
   { name: "Skica z ateliéru — ručne signovaná", icon: "✏️" },
-  { name: 'Samolepkový set „Vernis Collector"', icon: "🌟" },
+  { name: 'Samolepkový set „Okno duše Collector"', icon: "🌟" },
   { name: "Plagát A4 z limitovanej série", icon: "🖼️" },
   { name: "Záložka s mini-printom + odznak", icon: "🔖" },
 ];

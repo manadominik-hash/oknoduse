@@ -18,8 +18,8 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
   const art = getArtwork(slug);
-  if (!art) return { title: "Dielo nenájdené — Vernis" };
-  return { title: `${art.title} — ${getArtist(art.artistId)?.name} · Vernis` };
+  if (!art) return { title: "Dielo nenájdené — Okno duše" };
+  return { title: `${art.title} — ${getArtist(art.artistId)?.name} · Okno duše` };
 }
 
 export default async function ArtworkPage({ params }: { params: Promise<{ slug: string }> }) {

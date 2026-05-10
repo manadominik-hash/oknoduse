@@ -33,7 +33,7 @@ export function ArtImage({
     return (
       <div className={`relative overflow-hidden ${className}`} style={mesh(palette)} role="img" aria-label={alt}>
         <div className="absolute inset-0 bg-[radial-gradient(rgba(255,255,255,0.12)_1px,transparent_1px)] [background-size:6px_6px] opacity-40" />
-        <div className="absolute bottom-2 right-3 text-[10px] uppercase tracking-[0.25em] text-white/55">Vernis · ukážka</div>
+        <div className="absolute bottom-2 right-3 text-[10px] uppercase tracking-[0.25em] text-white/55">Okno duše · ukážka</div>
       </div>
     );
   }

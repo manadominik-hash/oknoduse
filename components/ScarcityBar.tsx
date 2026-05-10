@@ -4,7 +4,7 @@ export function ScarcityBar({ art, viewers }: { art: Artwork; viewers?: number }
   if (art.kind === "original") {
     return (
       <div className="flex items-center gap-2 text-xs">
-        <span className="inline-flex items-center gap-1 rounded-full bg-grape/15 px-2.5 py-1 font-semibold text-[#cdbcff] ring-1 ring-grape/40">
+        <span className="inline-flex items-center gap-1 rounded-full bg-grape/15 px-2.5 py-1 font-semibold text-grape ring-1 ring-grape/40">
           1 / 1 · originál
         </span>
         {typeof viewers === "number" && <span className="text-mute">👀 {viewers} pozerá</span>}
@@ -23,7 +23,7 @@ export function ScarcityBar({ art, viewers }: { art: Artwork; viewers?: number }
         </span>
         {typeof viewers === "number" && <span className="text-mute">👀 {viewers} pozerá</span>}
       </div>
-      <div className="h-1.5 w-full overflow-hidden rounded-full bg-ink/70 ring-1 ring-white/5">
+      <div className="h-1.5 w-full overflow-hidden rounded-full bg-line/70 ring-1 ring-line/40">
         <div
           className={`h-full rounded-full transition-[width] duration-700 ${hot ? "bg-gradient-to-r from-coral to-gold" : "bg-gradient-to-r from-grape to-gold-2"}`}
           style={{ width: `${Math.max(6, pct)}%` }}

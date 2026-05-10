@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useApp } from "@/lib/store";
 import { getArtist } from "@/lib/data";
 
-const KEY = "vernis_follows";
+const KEY = "okno_follows";
 
 export function FollowButton({ artistId }: { artistId: string }) {
   const { pushToast } = useApp();

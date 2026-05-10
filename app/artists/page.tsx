@@ -6,13 +6,13 @@ import { ArtImage } from "@/components/ArtImage";
 import { Reveal } from "@/components/Reveal";
 import { eur } from "@/lib/format";
 
-export const metadata: Metadata = { title: "Umelci — Vernis" };
+export const metadata: Metadata = { title: "Umelci — Okno duše" };
 
 export default function ArtistsPage() {
   return (
     <div className="container-x py-10">
       <Reveal>
-        <h1 className="font-display text-4xl font-semibold">Umelci na Vernis</h1>
+        <h1 className="font-display text-4xl font-semibold">Umelci na Okno duše</h1>
         <p className="mt-2 max-w-2xl text-mute">
           Žiadne stocky, žiadne AI plátna na bežiacom páse. Reálni ľudia, reálne ateliéry, reálne plátna —
           a ty si od nich kupuješ priamo. 88 % z ceny ide umelcovi.

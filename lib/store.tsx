@@ -79,7 +79,7 @@ type Ctx = {
 };
 
 const AppCtx = createContext<Ctx | null>(null);
-const KEY = "vernis_v1";
+const KEY = "okno_v1";
 
 function todayStr() {
   return new Date().toISOString().slice(0, 10);

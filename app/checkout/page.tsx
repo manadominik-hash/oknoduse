@@ -56,7 +56,7 @@ export default function CheckoutPage() {
   const availCodes = state.discounts;
 
   function applyCode() {
-    if (/^vernis\s*10$/i.test(code.trim()) || availCodes.includes(10)) setDiscountApplied(10);
+    if (/^okno\s*10$/i.test(code.trim()) || availCodes.includes(10)) setDiscountApplied(10);
     else setDiscountApplied(0);
     setCode("");
   }
@@ -131,14 +131,14 @@ export default function CheckoutPage() {
               <input
                 value={code}
                 onChange={(e) => setCode(e.target.value)}
-                placeholder={availCodes.includes(10) ? "Máš kód VERNIS10 z kolesa 🎡" : "napr. VERNIS10"}
+                placeholder={availCodes.includes(10) ? "Máš kód OKNO10 z kolesa 🎡" : "napr. OKNO10"}
                 className="flex-1 rounded-xl border border-line bg-ink/50 px-3.5 py-2.5 text-sm outline-none placeholder:text-mute/60 focus:border-grape/50"
               />
               <button onClick={applyCode} className="rounded-xl bg-ink-3 px-4 py-2.5 text-sm font-bold text-cream hover:bg-line">Použiť</button>
             </div>
             {discountApplied > 0 && <p className="mt-2 text-xs text-mint">✓ Zľava {discountApplied}% uplatnená.</p>}
             {availCodes.includes(10) && discountApplied === 0 && (
-              <button onClick={() => setDiscountApplied(10)} className="mt-2 text-xs text-grape underline">Použiť môj kód VERNIS10 (−10 %)</button>
+              <button onClick={() => setDiscountApplied(10)} className="mt-2 text-xs text-grape underline">Použiť môj kód OKNO10 (−10 %)</button>
             )}
           </section>
         </div>

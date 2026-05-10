@@ -6,8 +6,15 @@ export function Footer() {
       <div className="container-x grid gap-10 py-12 md:grid-cols-[1.4fr_1fr_1fr]">
         <div>
           <div className="flex items-center gap-2 font-display text-lg font-semibold">
-            <span className="grid h-7 w-7 place-items-center rounded-lg bg-gradient-to-br from-gold-2 to-grape text-ink">✦</span>
-            Vernis<span className="text-grape">.</span>
+            <span className="grid h-7 w-7 place-items-center rounded-lg bg-gradient-to-br from-gold-2 to-grape">
+              <svg width="16" height="16" viewBox="0 0 18 18" fill="none" aria-hidden>
+                <rect x="1" y="1" width="7" height="7" rx="1.2" fill="white" fillOpacity="0.92"/>
+                <rect x="10" y="1" width="7" height="7" rx="1.2" fill="white" fillOpacity="0.92"/>
+                <rect x="1" y="10" width="7" height="7" rx="1.2" fill="white" fillOpacity="0.92"/>
+                <rect x="10" y="10" width="7" height="7" rx="1.2" fill="white" fillOpacity="0.92"/>
+              </svg>
+            </span>
+            Okno duše<span className="text-grape">.</span>
           </div>
           <p className="mt-3 max-w-sm text-sm leading-relaxed text-mute">
             Galéria a obchod, kde si kupuješ originály a printy priamo od umelcov. Žiadni medzičlánkari, žiadne aukčné domy — len ty, plátno a príbeh za ním.
@@ -34,7 +41,7 @@ export function Footer() {
       </div>
       <div className="border-t border-line/60">
         <div className="container-x flex flex-col gap-2 py-5 text-xs text-mute sm:flex-row sm:items-center sm:justify-between">
-          <span>© {new Date().getFullYear()} Vernis — koncept &amp; UX prototyp.</span>
+          <span>© {new Date().getFullYear()} Okno duše — koncept &amp; UX prototyp.</span>
           <span className="rounded-full bg-gold/15 px-3 py-1 text-gold-2 ring-1 ring-gold/30">
             Demo: platby, dáta a doručenie sú simulované — nič sa neúčtuje.
           </span>

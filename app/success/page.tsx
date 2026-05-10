@@ -47,7 +47,7 @@ export default function SuccessPage() {
   function share() {
     const url = typeof window !== "undefined" ? window.location.origin + `/artwork/${art.slug}` : "";
     if (typeof navigator !== "undefined" && (navigator as Navigator).share) {
-      (navigator as Navigator).share({ title: `Práve som si kúpil(a) „${art.title}" na Vernis`, text: "Pozri sa na túto galériu nezávislých umelcov 👀", url }).catch(() => {});
+      (navigator as Navigator).share({ title: `Práve som si kúpil(a) „${art.title}" na Okno duše`, text: "Pozri sa na túto galériu nezávislých umelcov 👀", url }).catch(() => {});
     } else if (typeof navigator !== "undefined" && navigator.clipboard) {
       navigator.clipboard.writeText(url);
       pushToast({ kind: "info", title: "Odkaz skopírovaný", sub: "Pošli ho kamošom — nech vidia, čo zbieraš.", icon: "🔗" });

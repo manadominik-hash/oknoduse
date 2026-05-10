@@ -19,8 +19,15 @@ export function Header() {
     <header className="sticky top-0 z-40 border-b border-line/70 bg-ink/80 backdrop-blur-xl">
       <div className="container-x flex h-16 items-center gap-4">
         <Link href="/" className="group flex items-center gap-2 font-display text-xl font-semibold tracking-tight">
-          <span className="grid h-8 w-8 place-items-center rounded-lg bg-gradient-to-br from-gold-2 to-grape text-ink shadow-[0_0_24px_-4px_rgba(124,77,255,0.7)]">✦</span>
-          <span>Vernis<span className="text-grape">.</span></span>
+          <span className="grid h-8 w-8 place-items-center rounded-lg bg-gradient-to-br from-gold-2 to-grape shadow-[0_0_24px_-4px_rgba(107,53,238,0.55)]">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden>
+              <rect x="1" y="1" width="7" height="7" rx="1.2" fill="white" fillOpacity="0.92"/>
+              <rect x="10" y="1" width="7" height="7" rx="1.2" fill="white" fillOpacity="0.92"/>
+              <rect x="1" y="10" width="7" height="7" rx="1.2" fill="white" fillOpacity="0.92"/>
+              <rect x="10" y="10" width="7" height="7" rx="1.2" fill="white" fillOpacity="0.92"/>
+            </svg>
+          </span>
+          <span>Okno duše<span className="text-grape">.</span></span>
         </Link>
 
         <nav className="ml-4 hidden items-center gap-1 md:flex">

@@ -13,7 +13,7 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
   const ar = getArtist(slug);
-  return { title: ar ? `${ar.name} — Vernis` : "Umelec nenájdený — Vernis" };
+  return { title: ar ? `${ar.name} — Okno duše` : "Umelec nenájdený — Okno duše" };
 }
 
 export default async function ArtistPage({ params }: { params: Promise<{ slug: string }> }) {

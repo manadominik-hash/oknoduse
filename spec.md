@@ -1,4 +1,6 @@
-## 📱 Vernis — špecifikácia produktu
+## 📱 Okno duše — špecifikácia produktu
+
+> **Rebrand 10.5.2026:** Vernis → **Okno duše**. Nové logo (4 okenné tabule na zlatofialovom gradiente). Vizuálna identita prehodená z tmavého do svetlého „galerijného" módu (teplá biela, papierový pocit, jemné akvarelové gradienty).
 
 > Webová galéria a obchod, kde poloprofesionálni a nezávislí umelci predávajú svoje obrazy.
 > Dôraz na **jednoduchý nákup (dva kliky)**, **gamifikáciu** a **dopamínové slučky**, ktoré motivujú zbierať a vracať sa.
@@ -47,8 +49,8 @@
 1. **Friction-free nákup.** Od „páči sa mi to" k „je to moje" maximálne dva kliky: *Kúpiť teraz* → *jedna* obrazovka pokladne → hotovo. Žiadne viackrokové wizardy, žiadne povinné registrácie.
 2. **Dopamín v správnych momentoch.** Mikro-odmeny (body, confetti, animované číselníky), variabilné odmeny (koleso, mystery print) a sociálny dôkaz (live ticker, „X pozerá") — ale nikdy nie temné vzory, ktoré používateľa oberajú. Prehrať sa nedá nič; len získať.
 3. **Vzácnosť je pravdivá.** Originál = 1/1. Limitka = reálny počet kusov, viditeľný a klesajúci. Drop = reálny odpočet; po ňom dielo z dropu zmizne. Žiadne falošné „len dnes navždy".
-4. **Príbeh predáva.** Každé dielo má príbeh autora; každý umelec má profil s mestom, technikou a bio. To je to, čo odlišuje Vernis od stock e-shopu.
-5. **Tmavá galéria.** Vizuál = tmavá „stena galérie" s nasvietenými dielami, akcent fialová/zlatá, výrazná typografia (Fraunces serif + Plus Jakarta Sans). Obrazy sú hrdinom, UI ustupuje.
+4. **Príbeh predáva.** Každé dielo má príbeh autora; každý umelec má profil s mestom, technikou a bio. To je to, čo odlišuje Okno duše od stock e-shopu.
+5. **Svetlá galéria.** Vizuál = teplá biela „stena galérie" (papierový pocit), akcent fialová/zlatá, výrazná typografia (Fraunces serif + Plus Jakarta Sans). Pozadie má jemné akvarelové gradienty (fialová, zlatá, mäta). Obrazy sú hrdinom, UI ustupuje. *(Predtým tmavý mód — prehodené 10.5.2026.)*
 6. **Demo je úprimné.** Všade, kde je niečo simulované (platby, ostatní zberatelia), to appka jasne hovorí.
 
 ---
@@ -118,7 +120,7 @@ Odomykajú sa automaticky podľa stavu; niektoré majú v profile progress bar.
 
 ### 5.4 Koleso odmien 🎡
 - 1 spin za každý nákup + 1 za každý level-up. Bez nákupu sa nedá prehrať nič — len získať.
-- 8 sektorov s váženou pravdepodobnosťou: `+10/+50/+120/+300 bodov`, `+1 spin`, `10% zľava (kód VERNIS10)`, `mini print zadarmo`, `skús zajtra` (nič). SVG koleso, fyzikálne dotočenie (cubic-bezier ~4 s), confetti pri výhre (väčšia pri veľkej výhre).
+- 8 sektorov s váženou pravdepodobnosťou: `+10/+50/+120/+300 bodov`, `+1 spin`, `10% zľava (kód OKNO10)`, `mini print zadarmo`, `skús zajtra` (nič). SVG koleso, fyzikálne dotočenie (cubic-bezier ~4 s), confetti pri výhre (väčšia pri veľkej výhre).
 
 ### 5.5 Mystery print 🎁
 - Ku každej objednávke jeden „darček" — flip karta na `/success` (a v zbierke). Po kliknutí sa odhalí jeden z poolu (mini riso print, set pohľadníc, skica z ateliéru, samolepky, plagát A4, záložka + odznak). Deterministicky podľa ID objednávky; confetti pri odhalení.
@@ -139,9 +141,9 @@ Odomykajú sa automaticky podľa stavu; niektoré majú v profile progress bar.
 
 - **Artist**: `id, slug, name, city, tagline, bio, accent, avatarSeed, followers`.
 - **Artwork**: `id, slug, title, artistId, year, medium, size, category(Maľba|Ilustrácia|Fotografia|Print), price(EUR), image, palette[3], kind(original|limited), editionTotal, editionSold, dropEndsAt?, baseViewers, story, tags[]`.
-- **Stav používateľa** (`localStorage: vernis_v1`): `points, xp, ownedIds[], badges[], spins, orders[], mysteryPrints[], wishlist[], discounts[], streak, lastVisit, pendingCheckout, lastOrderId` + denné flagy `daily_<YYYY-MM-DD>`.
+- **Stav používateľa** (`localStorage: okno_v1`): `points, xp, ownedIds[], badges[], spins, orders[], mysteryPrints[], wishlist[], discounts[], streak, lastVisit, pendingCheckout, lastOrderId` + denné flagy `daily_<YYYY-MM-DD>`.
 - **Order**: `id, artworkId, title, artistId, price, payment(card|transfer|cod), date, pointsEarned`.
-- Sledovaní umelci: `localStorage: vernis_follows`.
+- Sledovaní umelci: `localStorage: okno_follows`.
 
 Obrázky: externé URL (Unsplash); ak sa nenačítajú, `ArtImage` vykreslí jemný gradientový „mesh" z palety diela — appka tak vždy vyzerá kompletne, aj offline.
 
@@ -178,5 +180,5 @@ npm run dev      # http://localhost:3000
 npm run build && npm run start   # produkčný build
 ```
 
-Stav je v `localStorage` — na vyčistenie demo profilu slúži tlačidlo „↺ Vynulovať demo" v `/collection` (alebo vymaž kľúče `vernis_*`).
+Stav je v `localStorage` — na vyčistenie demo profilu slúži tlačidlo „↺ Vynulovať demo" v `/collection` (alebo vymaž kľúče `okno_*`).
 >>>>>>> c81c36fbed21032728fbedd8968ab7fcf8ab3aea

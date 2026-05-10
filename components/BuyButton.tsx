@@ -61,7 +61,7 @@ export function BuyButton({ art, size = "lg" }: { art: Artwork; size?: "lg" | "m
         <span>mystery print zdarma 🎁</span>
       </div>
       {hint && (
-        <div className="rounded-xl bg-grape/12 px-3 py-2 text-center text-[11px] text-[#cdbcff] ring-1 ring-grape/30">
+        <div className="rounded-xl bg-grape/10 px-3 py-2 text-center text-[11px] text-grape ring-1 ring-grape/25">
           Týmto nákupom odomkneš odznak <span className="font-semibold">„{hint}"</span>
         </div>
       )}

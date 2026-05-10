@@ -21,7 +21,7 @@ const sans = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Vernis — originály od slovenských umelcov",
+  title: "Okno duše — originály od slovenských umelcov",
   description:
     "Galéria a obchod, kde podporuješ skutočných umelcov. Jeden klik a obraz je tvoj. Zbieraj, leveluj, odomykaj odmeny.",
 };

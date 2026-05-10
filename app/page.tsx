@@ -31,7 +31,7 @@ export default function Home() {
               Podpor <span className="shimmer-text">skutočného umelca</span>.
             </h1>
             <p className="mt-5 max-w-lg text-lg leading-relaxed text-mute">
-              Vernis je galéria, kde sa obraz stáva tvojím na dva kliky — bez aukčných domov a sprostredkovateľov.
+              Okno duše je galéria, kde sa obraz stáva tvojím na dva kliky — bez aukčných domov a sprostredkovateľov.
               Každý nákup ti prináša body, levely a odmeny. Zbieranie umenia konečne vyzerá ako hra, ktorú chceš hrať.
             </p>
             <div className="mt-7 flex flex-wrap items-center gap-3">
@@ -58,15 +58,15 @@ export default function Home() {
               <div className="relative overflow-hidden rounded-xl2 border border-line bg-card shadow-[0_30px_80px_-30px_rgba(124,77,255,0.5)]">
                 <div className="relative aspect-[5/4] overflow-hidden">
                   <ArtImage src={featured.image} alt={featured.title} palette={featured.palette} className="h-full w-full" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-ink/90 via-transparent to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-cream/85 via-transparent to-transparent" />
                   <span className="absolute left-4 top-4 rounded-full bg-coral px-3 py-1 text-xs font-bold uppercase tracking-wide text-white">
                     ● Live drop
                   </span>
                   <div className="absolute right-4 top-4"><WishlistButton artworkId={featured.id} /></div>
                   <div className="absolute bottom-4 left-4 right-4 flex items-end justify-between gap-3">
                     <div>
-                      <div className="text-xs text-mute">{featured.kind === "original" ? "Originál · jediný kus" : `Limitka · ${featured.editionTotal} ks`}</div>
-                      <div className="font-display text-2xl font-semibold">{featured.title}</div>
+                      <div className="text-xs text-ink/60">{featured.kind === "original" ? "Originál · jediný kus" : `Limitka · ${featured.editionTotal} ks`}</div>
+                      <div className="font-display text-2xl font-semibold text-ink">{featured.title}</div>
                     </div>
                     {featured.dropEndsAt && <Countdown to={featured.dropEndsAt} compact />}
                   </div>
@@ -178,7 +178,7 @@ export default function Home() {
       {/* ===== ARTISTS ===== */}
       <section className="container-x py-12">
         <Reveal>
-          <h2 className="font-display text-3xl font-semibold">Umelci na Vernis</h2>
+          <h2 className="font-display text-3xl font-semibold">Umelci na Okno duše</h2>
           <p className="mt-1 text-mute">Skutoční ľudia so skutočnými ateliérmi. Klikni a spoznaj príbeh za plátnom.</p>
         </Reveal>
         <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
