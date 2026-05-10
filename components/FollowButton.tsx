@@ -34,11 +34,13 @@ export function FollowButton({ artistId }: { artistId: string }) {
   return (
     <button
       onClick={toggle}
-      className={`rounded-2xl px-5 py-2.5 text-sm font-bold transition ${
-        following ? "border border-line bg-ink-2/70 text-mute hover:text-cream" : "bg-cream text-ink hover:bg-white"
+      className={`inline-flex items-center gap-2 border-b pb-0.5 text-xs uppercase tracking-[0.22em] transition ${
+        following
+          ? "border-grape/40 text-grape hover:border-grape"
+          : "border-cream/40 text-cream hover:border-grape hover:text-grape"
       }`}
     >
-      {following ? "✓ Sleduješ" : "🔔 Sledovať"}
+      {following ? "✓ Sleduješ" : "Sledovať umelca"}
     </button>
   );
 }

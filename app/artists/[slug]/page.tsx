@@ -2,9 +2,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { artists, getArtist, artworksByArtist } from "@/lib/data";
-import { ArtistAvatar } from "@/components/ArtistAvatar";
 import { ArtworkCard } from "@/components/ArtworkCard";
-import { eur } from "@/lib/format";
 import { FollowButton } from "@/components/FollowButton";
 
 export function generateStaticParams() {
@@ -21,39 +19,54 @@ export default async function ArtistPage({ params }: { params: Promise<{ slug: s
   const ar = getArtist(slug);
   if (!ar) notFound();
   const works = artworksByArtist(ar.id);
-  const from = works.length ? Math.min(...works.map((w) => w.price)) : 0;
-  const drops = works.filter((w) => w.dropEndsAt).length;
 
   return (
     <div>
-      <section className="relative overflow-hidden border-b border-line/70" style={{ background: `linear-gradient(135deg, ${ar.accent}22, transparent 60%)` }}>
-        <div className="container-x py-12">
-          <Link href="/artists" className="text-sm text-mute hover:text-cream">← Všetci umelci</Link>
-          <div className="mt-5 flex flex-col gap-6 sm:flex-row sm:items-center">
-            <ArtistAvatar artist={ar} size={96} />
-            <div className="flex-1">
-              <h1 className="font-display text-4xl font-semibold sm:text-5xl">{ar.name}</h1>
-              <p className="mt-1 text-mute">{ar.city} · {ar.tagline}</p>
-              <div className="mt-3 flex flex-wrap items-center gap-x-5 gap-y-1 text-sm text-mute">
-                <span>🖼️ {works.length} diel</span>
-                {drops > 0 && <span className="text-coral">⏳ {drops} v drope</span>}
-                <span>💶 od {eur(from)}</span>
-                <span>❤️ {ar.followers.toLocaleString("sk-SK")} sledujúcich</span>
-              </div>
+      {/* Quiet hero — no gradient, no metadata clutter */}
+      <section className="container-x py-20 lg:py-28">
+        <Link
+          href="/artists"
+          className="text-xs uppercase tracking-[0.22em] text-mute transition hover:text-grape"
+        >
+          ← Všetci umelci
+        </Link>
+
+        <div className="mt-12 grid gap-12 lg:grid-cols-[1fr_1.4fr] lg:items-start">
+          <div>
+            <span className="text-xs uppercase tracking-[0.22em] text-mute">{ar.city}</span>
+            <h1 className="mt-3 font-display text-5xl leading-[1.05] tracking-tight sm:text-6xl">
+              {ar.name}
+            </h1>
+            <div className="mt-4 text-base italic text-mute">{ar.tagline}</div>
+            <div className="mt-8">
+              <FollowButton artistId={ar.id} />
             </div>
-            <FollowButton artistId={ar.id} />
           </div>
-          <p className="mt-6 max-w-2xl leading-relaxed text-cream/90">{ar.bio}</p>
+          <div>
+            <p className="font-display text-lg leading-[1.7] text-cream/85">{ar.bio}</p>
+          </div>
         </div>
       </section>
 
-      <section className="container-x py-10">
-        <h2 className="font-display text-2xl font-semibold">Diela od {ar.name}</h2>
+      {/* Works — the reason you came */}
+      <section className="container-x py-16 lg:py-24">
+        <div className="border-t border-line/70 pb-8 pt-12">
+          <div className="flex items-end justify-between gap-6">
+            <h2 className="font-display text-2xl italic tracking-tight">Diela</h2>
+            <span className="text-xs uppercase tracking-[0.22em] text-mute">
+              {works.length} {works.length === 1 ? "dielo" : works.length < 5 ? "diela" : "diel"}
+            </span>
+          </div>
+        </div>
         {works.length === 0 ? (
-          <div className="mt-6 rounded-xl2 border border-dashed border-line p-12 text-center text-mute">Tento umelec zatiaľ nemá zverejnené diela.</div>
+          <div className="mt-12 text-center text-sm text-mute">
+            Tento umelec zatiaľ nemá zverejnené diela.
+          </div>
         ) : (
-          <div className="mt-6 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-            {works.map((w) => <ArtworkCard key={w.id} art={w} />)}
+          <div className="grid grid-cols-1 gap-x-6 gap-y-14 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+            {works.map((w) => (
+              <ArtworkCard key={w.id} art={w} />
+            ))}
           </div>
         )}
       </section>

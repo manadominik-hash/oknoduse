@@ -1,63 +1,73 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import { artists, artworks } from "@/lib/data";
-import { ArtistAvatar } from "@/components/ArtistAvatar";
 import { ArtImage } from "@/components/ArtImage";
 import { Reveal } from "@/components/Reveal";
-import { eur } from "@/lib/format";
 
 export const metadata: Metadata = { title: "Umelci — Okno duše" };
 
 export default function ArtistsPage() {
   return (
-    <div className="container-x py-10">
+    <div className="container-x py-24 lg:py-32">
       <Reveal>
-        <h1 className="font-display text-4xl font-semibold">Umelci na Okno duše</h1>
-        <p className="mt-2 max-w-2xl text-mute">
-          Žiadne stocky, žiadne AI plátna na bežiacom páse. Reálni ľudia, reálne ateliéry, reálne plátna —
-          a ty si od nich kupuješ priamo. 88 % z ceny ide umelcovi.
+        <span className="text-xs uppercase tracking-[0.28em] text-mute">Galéria</span>
+        <h1 className="mt-6 font-display text-5xl leading-[1.05] tracking-tight sm:text-6xl">
+          Umelci
+        </h1>
+        <p className="mt-8 max-w-md font-display text-lg leading-relaxed text-cream/80">
+          Žiadne stocky. Reálni ľudia, reálne ateliéry, reálne plátna — a ty si od nich kupuješ priamo.
         </p>
       </Reveal>
 
-      <div className="mt-8 space-y-5">
+      <div className="mt-24 space-y-32">
         {artists.map((ar, idx) => {
-          const works = artworks.filter((a) => a.artistId === ar.id);
-          const from = works.length ? Math.min(...works.map((w) => w.price)) : 0;
+          const works = artworks.filter((a) => a.artistId === ar.id).slice(0, 4);
           return (
-            <Reveal key={ar.id} delay={idx * 0.05}>
-              <div className="overflow-hidden rounded-xl2 border border-line bg-card">
-                <div className="grid gap-0 lg:grid-cols-[1.1fr_1.4fr]">
-                  <div className="p-6 sm:p-8">
-                    <div className="flex items-center gap-3">
-                      <ArtistAvatar artist={ar} size={56} />
-                      <div>
-                        <Link href={`/artists/${ar.slug}`} className="font-display text-2xl font-semibold hover:underline">{ar.name}</Link>
-                        <div className="text-sm text-mute">{ar.city} · {ar.tagline}</div>
-                      </div>
-                    </div>
-                    <p className="mt-4 leading-relaxed text-mute">{ar.bio}</p>
-                    <div className="mt-5 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-mute">
-                      <span>🖼️ {works.length} diel v ponuke</span>
-                      <span>💶 od {eur(from)}</span>
-                      <span>❤️ {ar.followers.toLocaleString("sk-SK")} sledujúcich</span>
-                    </div>
-                    <Link href={`/artists/${ar.slug}`} className="mt-6 inline-block rounded-2xl bg-cream px-5 py-2.5 text-sm font-bold text-ink transition hover:bg-white">
-                      Zobraziť profil & diela →
+            <Reveal key={ar.id} delay={idx * 0.04}>
+              <article>
+                {/* Works first — they are the protagonist */}
+                <div className="grid grid-cols-2 gap-3 sm:grid-cols-4 sm:gap-5">
+                  {works.map((w) => (
+                    <Link
+                      key={w.id}
+                      href={`/artwork/${w.slug}`}
+                      className="group block overflow-hidden rounded-sm bg-card"
+                    >
+                      <ArtImage
+                        src={w.image}
+                        alt={w.title}
+                        palette={w.palette}
+                        className="aspect-[4/5] w-full transition-transform duration-[1200ms] ease-out group-hover:scale-[1.03]"
+                      />
+                    </Link>
+                  ))}
+                </div>
+
+                {/* Artist info — secondary, calm */}
+                <div className="mt-10 grid gap-8 lg:grid-cols-[1fr_1.4fr] lg:items-start">
+                  <div>
+                    <span className="text-xs uppercase tracking-[0.22em] text-mute">{ar.city}</span>
+                    <h2 className="mt-3 font-display text-3xl leading-tight">
+                      <Link
+                        href={`/artists/${ar.slug}`}
+                        className="transition hover:text-grape"
+                      >
+                        {ar.name}
+                      </Link>
+                    </h2>
+                    <div className="mt-2 text-sm italic text-mute">{ar.tagline}</div>
+                  </div>
+                  <div>
+                    <p className="font-display text-base leading-relaxed text-cream/80">{ar.bio}</p>
+                    <Link
+                      href={`/artists/${ar.slug}`}
+                      className="mt-6 inline-flex border-b border-cream/40 pb-0.5 text-xs uppercase tracking-[0.22em] text-cream transition hover:border-grape hover:text-grape"
+                    >
+                      Profil & všetky diela →
                     </Link>
                   </div>
-                  <div className="grid grid-cols-3 gap-px bg-line/40">
-                    {works.slice(0, 3).map((w) => (
-                      <Link key={w.id} href={`/artwork/${w.slug}`} className="group relative block bg-card">
-                        <ArtImage src={w.image} alt={w.title} palette={w.palette} className="aspect-square w-full transition-transform duration-500 group-hover:scale-105" />
-                        <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink/90 to-transparent p-2.5">
-                          <div className="truncate text-xs font-semibold">{w.title}</div>
-                          <div className="text-[11px] text-mute">{eur(w.price)}</div>
-                        </div>
-                      </Link>
-                    ))}
-                  </div>
                 </div>
-              </div>
+              </article>
             </Reveal>
           );
         })}
