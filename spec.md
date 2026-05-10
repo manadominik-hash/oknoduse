@@ -1,6 +1,8 @@
 ## 📱 Okno duše — špecifikácia produktu
 
 > **Rebrand 10.5.2026:** Vernis → **Okno duše**. Nové logo (4 okenné tabule na zlatofialovom gradiente). Vizuálna identita prehodená z tmavého do svetlého „galerijného" módu (teplá biela, papierový pocit, jemné akvarelové gradienty).
+>
+> **Editorial redesign 10.5.2026:** Filozofia *galéria > obchod*. Domov stripnutý — odstránené sekcie „Ako to funguje" a „Level ladder", trust badges, BuyButton z hero. Karta diela zredukovaná na obrázok + autor + názov + cena (žiadne overlaye, badge-y, scarcity-bary, viewer counts). Filtre v galérii ako pokojné inline odkazy (žiadne pilulky). Header tighter (uppercase tracking, žiadne CTA tlačidlá). Editorial pacing `py-24/py-32` medzi sekciami. Body prose v Fraunces serif. Akcent disciplína: **grape** = jediná interaktívna farba, **gold** výlučne pre brand/odznaky, **coral** výlučne pre extrémnu urgenciu.
 
 > Webová galéria a obchod, kde poloprofesionálni a nezávislí umelci predávajú svoje obrazy.
 > Dôraz na **jednoduchý nákup (dva kliky)**, **gamifikáciu** a **dopamínové slučky**, ktoré motivujú zbierať a vracať sa.

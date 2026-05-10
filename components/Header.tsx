@@ -30,14 +30,14 @@ export function Header() {
           <span>Okno duše<span className="text-grape">.</span></span>
         </Link>
 
-        <nav className="ml-4 hidden items-center gap-1 md:flex">
+        <nav className="ml-6 hidden items-center gap-7 md:flex">
           {NAV.map((n) => {
             const active = n.href === "/" ? path === "/" : path.startsWith(n.href.replace(/#.*$/, "")) && n.href !== "/";
             return (
               <Link
                 key={n.href}
                 href={n.href}
-                className={`rounded-full px-3 py-1.5 text-sm transition ${active ? "bg-ink-3 text-cream" : "text-mute hover:bg-ink-2 hover:text-cream"}`}
+                className={`text-xs uppercase tracking-[0.18em] transition ${active ? "text-cream" : "text-mute hover:text-cream"}`}
               >
                 {n.label}
               </Link>
@@ -49,7 +49,7 @@ export function Header() {
           <PointsPill />
           <Link
             href="/collection"
-            className="hidden rounded-full bg-cream px-4 py-2 text-sm font-bold text-ink transition hover:bg-white sm:block"
+            className="hidden text-xs uppercase tracking-[0.18em] text-cream transition hover:text-grape sm:block"
           >
             Moja zbierka
           </Link>

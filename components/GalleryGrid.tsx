@@ -30,23 +30,28 @@ export function GalleryGrid({ artworks }: { artworks: Artwork[] }) {
 
   return (
     <div>
-      <div className="flex flex-wrap items-center gap-2">
-        {categories.map((c) => (
-          <button
-            key={c}
-            onClick={() => setCat(c)}
-            className={`rounded-full px-3.5 py-1.5 text-sm font-medium transition ${
-              cat === c ? "bg-cream text-ink" : "border border-line bg-ink-2/60 text-mute hover:border-grape/40 hover:text-cream"
-            }`}
-          >
-            {c}
-          </button>
-        ))}
-        <span className="mx-1 h-5 w-px bg-line" />
+      <div className="flex flex-wrap items-center gap-x-6 gap-y-3 text-sm">
+        <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
+          {categories.map((c) => (
+            <button
+              key={c}
+              onClick={() => setCat(c)}
+              className={`text-xs uppercase tracking-[0.18em] transition ${
+                cat === c ? "text-cream" : "text-mute hover:text-cream"
+              }`}
+            >
+              {c}
+              {cat === c && <span aria-hidden className="ml-1 text-grape">·</span>}
+            </button>
+          ))}
+        </div>
+
+        <span className="hidden h-3 w-px bg-line sm:block" />
+
         <select
           value={band}
           onChange={(e) => setBand(Number(e.target.value))}
-          className="rounded-full border border-line bg-ink-2/60 px-3 py-1.5 text-sm text-cream outline-none focus:border-grape/50"
+          className="bg-transparent text-xs uppercase tracking-[0.18em] text-mute outline-none transition hover:text-cream"
         >
           {priceBands.map((b, i) => (
             <option key={b.label} value={i} className="bg-ink">
@@ -54,19 +59,23 @@ export function GalleryGrid({ artworks }: { artworks: Artwork[] }) {
             </option>
           ))}
         </select>
+
         <button
           onClick={() => setOnlyDrops((v) => !v)}
-          className={`rounded-full px-3.5 py-1.5 text-sm font-medium transition ${
-            onlyDrops ? "bg-coral text-white" : "border border-line bg-ink-2/60 text-mute hover:text-cream"
+          className={`text-xs uppercase tracking-[0.18em] transition ${
+            onlyDrops ? "text-cream" : "text-mute hover:text-cream"
           }`}
         >
-          ⏳ Len dropy
+          Len dropy
+          {onlyDrops && <span aria-hidden className="ml-1 text-grape">·</span>}
         </button>
+
         <span className="ml-auto" />
+
         <select
           value={sort}
           onChange={(e) => setSort(e.target.value as Sort)}
-          className="rounded-full border border-line bg-ink-2/60 px-3 py-1.5 text-sm text-cream outline-none focus:border-grape/50"
+          className="bg-transparent text-xs uppercase tracking-[0.18em] text-mute outline-none transition hover:text-cream"
         >
           {(["Najnovšie", "Najžiadanejšie", "Najlacnejšie", "Najdrahšie"] as Sort[]).map((s) => (
             <option key={s} className="bg-ink">{s}</option>
@@ -74,16 +83,18 @@ export function GalleryGrid({ artworks }: { artworks: Artwork[] }) {
         </select>
       </div>
 
-      <div className="mt-3 text-xs text-mute">{list.length} {list.length === 1 ? "dielo" : list.length < 5 ? "diela" : "diel"}</div>
+      <div className="mt-6 text-xs uppercase tracking-[0.2em] text-mute">
+        {list.length} {list.length === 1 ? "dielo" : list.length < 5 ? "diela" : "diel"}
+      </div>
 
       {list.length === 0 ? (
-        <div className="mt-10 rounded-xl2 border border-dashed border-line p-12 text-center text-mute">
-          Nič nesedí na tieto filtre. Skús ich uvoľniť 🙂
+        <div className="mt-12 border-t border-line/60 pt-12 text-center text-sm text-mute">
+          Nič nesedí na tieto filtre. Skús ich uvoľniť.
         </div>
       ) : (
-        <div className="mt-5 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-          {list.map((a, i) => (
-            <ArtworkCard key={a.id} art={a} priority={i < 4} />
+        <div className="mt-8 grid grid-cols-1 gap-x-6 gap-y-14 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+          {list.map((a) => (
+            <ArtworkCard key={a.id} art={a} />
           ))}
         </div>
       )}
