@@ -34,8 +34,8 @@ export type Artwork = {
   tags: string[];
 };
 
-const U = (id: string) =>
-  `https://images.unsplash.com/photo-${id}?auto=format&fit=crop&w=1100&q=80`;
+// Picsum.photos so demo images always load. Seed = Unsplash ID kept stable per artwork.
+const U = (id: string) => `https://picsum.photos/seed/${id}/1100/1375`;
 
 export const artists: Artist[] = [
   {
