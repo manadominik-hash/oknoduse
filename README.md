@@ -1,36 +1,45 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Vernis — galéria & obchod pre nezávislých umelcov
 
-## Getting Started
+Webová aplikácia na predaj obrazov (originály, limitky, printy) priamo od umelcov.
+Zameraná na **jednoduchý nákup na dva kliky**, **gamifikáciu** a jemné **dopamínové slučky**, ktoré z kúpy a zbierania umenia robia zážitok.
 
-First, run the development server:
+> **Stav:** funkčný UX/UI prototyp. Platby, dáta a doručenie sú **simulované**; stav používateľa sa drží v `localStorage`. Kompletná špecifikácia je v [`spec.md`](./spec.md).
+
+## Čo to vie
+
+- 🛒 **Nákup na 2 kliky** — *Kúpiť teraz* → jedna obrazovka pokladne (karta/Stripe · bankový prevod/rezervácia · dobierka) → hotovo.
+- 🖼️ **Galéria** s filtrami (kategória, cena, len dropy, triedenie), detail diela, profily umelcov.
+- ⏳ **Dropy & vzácnosť** — tikajúce odpočty, reálne klesajúce edície, „posledné kusy", live počet pozerajúcich, live ticker udalostí.
+- ✦ **Body, XP a 7 levelov** s perkami; animované počítadlo v hlavičke.
+- 🏆 **10 odznakov** s progresom, **rebríček zberateľov**.
+- 🎡 **Koleso odmien** (1 spin za nákup / level-up) a 🎁 **mystery print** ku každej objednávke.
+- 🔥 **Denná odmena** so 7-dňovou sériou.
+- 🎉 Konfety, toasty, reveal-on-scroll, tmavá „galerijná" estetika.
+
+## Technológie
+
+Next.js 16 (App Router, Turbopack) · React 19 · TypeScript · Tailwind CSS v4 · motion (Framer Motion) · canvas-confetti.
+
+## Spustenie
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev          # http://localhost:3000
+# produkčne:
+npm run build && npm run start
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Demo profil vyčistíš tlačidlom „↺ Vynulovať demo" v `/collection` (alebo zmaž `localStorage` kľúče `vernis_*`).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Štruktúra
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+app/          stránky (/, /artwork/[slug], /artists, /artists/[slug], /checkout, /success, /collection)
+components/    UI komponenty (ArtworkCard, Countdown, WheelOfFortune, MysteryReveal, BadgeGrid, ...)
+lib/           data.ts (ukážkové diela/umelci), store.tsx (stav + gamifikácia), badges.ts, format.ts, confetti.ts
+spec.md       produktová a UX špecifikácia
+```
 
-## Learn More
+## Ďalšie kroky
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Reálne platby (Stripe webhooky), backend + kontá zberateľov, sklad/doručenie, plánované dropy + notifikácie, `prefers-reduced-motion`, lokalizácia. Detaily v `spec.md` → *Roadmap*.
