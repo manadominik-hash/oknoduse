@@ -7,9 +7,7 @@ import { PointsPill } from "./PointsPill";
 
 const NAV = [
   { href: "/", label: "Galéria" },
-  { href: "/#dropy", label: "Dropy" },
   { href: "/artists", label: "Umelci" },
-  { href: "/#ako", label: "Ako to funguje" },
 ];
 
 export function Header() {
